@@ -15,7 +15,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
   end
 
-  test "" do
+  test "新規会員登録完了→ログインした状態でプロフィール画面へ遷移する" do
     get signup_path
     assert_difference "User.count", 1 do
       post users_path, params: { user: {
@@ -27,5 +27,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template "users/show"
+    assert is_logged_in?
   end
 end
