@@ -11,16 +11,13 @@
     ログイン情報を入力する
     ↓
     new
-    sessions_controller　
-    sessions_helper　(ApplicationControllerからinclude)
+    sessions_controller　(create)
+    sessions_helper　(ApplicationControllerにinclude)
         log_in(user)→ログインさせる (sessionのcreate時、userのcreate時)
         current_user→ログインしてなかったらユーザーDBからparamsで引っ張ってくる。(logged_inの判断に使っている)
         logged_in?⇨current_userを使って既にログインしているか？を真偽値で返す(header)
         log_out→ログアウトさせる (destroy)
 
-
-
-    post createする
     ↓
     ログイン成功。プロフィール画面に移動する
     ↓

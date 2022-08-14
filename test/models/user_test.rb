@@ -63,4 +63,8 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
+
+  test "remember_digestが存在しなかった場合のauthenticated?のテスト" do
+    assert_not @user.authenticated?('')
+  end
 end
