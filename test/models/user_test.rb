@@ -65,6 +65,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "remember_digestが存在しなかった場合のauthenticated?のテスト" do
-    assert_not @user.authenticated?('')
+    assert_not @user.authenticated?(:remember, '')
   end
 end
