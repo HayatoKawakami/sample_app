@@ -15,6 +15,8 @@ gem 'bcrypt',         '3.1.13'
 gem 'faker',                   '2.20.0'
 gem 'will_paginate',           '3.3.1'
 gem 'bootstrap-will_paginate', '1.0.0'
+# メイラーのテストで日本語対応
+gem 'mail-iso-2022-jp'
 
 group :development, :test do
   gem 'sqlite3', '1.4.2'
@@ -24,8 +26,8 @@ end
 group :development do
   gem 'web-console',           '4.0.1'
   gem 'listen',                '3.1.5'
-  gem 'spring',                '2.1.0'
-  gem 'spring-watcher-listen', '2.0.1'
+  # gem 'spring',                '2.1.0'
+  # gem 'spring-watcher-listen', '2.0.1'
 end
 
 group :test do
