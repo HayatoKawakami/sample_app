@@ -67,4 +67,12 @@ class UserTest < ActiveSupport::TestCase
   test "remember_digestが存在しなかった場合のauthenticated?のテスト" do
     assert_not @user.authenticated?(:remember, '')
   end
+
+  test "ユーザーが削除された時、そのユーザーの投稿も同時に削除されているか？" do
+    @user.save
+    @user.microposts.create!(content: "これはテスト投稿です")
+    assert_difference "Micropost.count", -1 do
+      @user.destroy
+    end
+  end
 end
