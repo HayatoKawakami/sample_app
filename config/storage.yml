@@ -8,10 +8,10 @@ local:
 
 amazon:
   service: S3
-  access_key_id:     <%= ENV['AWS_ACCESS_KEY'] %>
-  secret_access_key: <%= ENV['AWS_SECRET_KEY'] %>
-  region:            <%= ENV['AWS_REGION'] %>
-  bucket:            <%= ENV['AWS_BUCKET'] %>
+  access_key_id:     <%= ENV['AKIAXDO3NJ4SDQSIT6ZM'] %>
+  secret_access_key: <%= ENV['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'] %>
+  region:            <%= ENV['region=us-east-1'] %>
+  bucket:            <%= ENV['hayato0322-rails-tutorial'] %>
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
