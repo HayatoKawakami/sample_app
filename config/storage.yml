@@ -1,4 +1,4 @@
-
+test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
 
@@ -12,7 +12,6 @@ amazon:
   secret_access_key: <%= ENV['AWS_SECRET_KEY'] %>
   region:            <%= ENV['AWS_REGION'] %>
   bucket:            <%= ENV['AWS_BUCKET'] %>
-  
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
