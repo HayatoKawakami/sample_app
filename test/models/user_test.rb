@@ -75,4 +75,33 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+
+  test "フォロー機能とアンフォロー機能が正常か？" do
+    michael = users(:michael)
+    archer = users(:archer)
+    assert_not michael.following?(archer)
+    michael.follow(archer)
+    assert michael.following?(archer)
+    assert archer.followers.include?(michael)
+    michael.unfollow(archer)
+    assert_not michael.following?(archer)
+  end
+
+  test "フィードに自分の投稿とfollowingのアカウントの投稿が表示されているか？" do
+    michael = users(:michael)
+    archer = users(:archer)
+    lana = users(:lana)
+
+    lana.microposts.each do |post_following|
+      assert michael.feed.include?(post_following)
+    end
+
+    michael.microposts.each do |post_following|
+      assert michael.feed.include?(post_following)
+    end
+
+    archer.microposts.each do |post_following|
+      assert_not michael.feed.include?(post_following)
+    end
+  end
 end

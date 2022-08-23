@@ -31,5 +31,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
+  test "ログインしていないままフォロー一覧ページにいくとログインページにリダイレクトされる" do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+  end
+
+  test "ログインしていないままフォロワー一覧ページにいくとログインページにリダイレクトされる" do
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+  end
+
   
 end
